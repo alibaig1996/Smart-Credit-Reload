@@ -12,6 +12,10 @@ import {
   View
 } from 'react-native';
 
+let test = fetch('http://192.168.100.61:8080').then((response) => console.log(response.json()))
+
+
+
 export default class MobileApp extends Component {
   render() {
     return (
