@@ -9,14 +9,23 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View, 
+  Image
 } from 'react-native';
 
 import Camera from 'react-native-camera';
+import ImagePicker from 'react-native-image-crop-picker';
+
 
 
 export default class MobileApp extends Component {
+	constructor(props){
+    super(props);
+    this.state = {picturePath: ''};
+  }
   render() {
+	let {picturePath} = this.state;
+
     return (
       <View style={styles.container}>
          <Camera
@@ -27,15 +36,42 @@ export default class MobileApp extends Component {
           aspect={Camera.constants.Aspect.fill}>
           <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
         </Camera>
+		
+		<Image
+          style={{width: 50, height: 50}}
+          source={{uri: picturePath}}
+        />
+		
+		
+		
+		
+		
       </View>
     );
   }
    takePicture() {
     const options = {};
     //options.location = ...
+	//this.cropPicture();
     this.camera.capture({metadata: options})
-      .then((data) => console.log(data))
+      .then(function(data){
+		  this.cropPicture(data.path);		  
+		  //return(picturePath)
+	}.bind(this))
       .catch(err => console.error(err));
+  }
+  
+  cropPicture(pathPic){
+    
+
+	  ImagePicker.openCropper({
+	  path: pathPic,
+	  width: 300,
+	  height: 400
+	}).then(image => {
+	   this.setState({picturePath: image.path})
+
+	});
   }
 }
 
