@@ -57,7 +57,26 @@ export default class CameraCrop extends Component{
 	  width: 600,
 	  height: 200
 	}).then(image => {
-	   this.setState({picturePath: image.path})
+    // this.setState({picturePath: image.path})
+
+    /*
+
+    // sending image to server
+    let body = new FormData();
+    body.append('photo', {uri: image.path,name: 'image.jpg',filename :'imageName.jpg',type: 'image/jpg'});
+        body.append('Content-Type', 'image/jpg');
+
+    // add server url here
+    fetch(Url,{ method: 'POST',headers:{  
+         "Content-Type": "multipart/form-data",
+         } , body :body} )
+      .then((res) => checkStatus(res))
+      .then((res) => res.json())
+      .then((res) => { console.log("response" +JSON.stringify(res)); })
+      .catch((e) => console.log(e))
+      .done()
+      
+    */
 
 	});
   }
