@@ -13,8 +13,6 @@ import {
   Image
 } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
-import Camera from 'react-native-camera';
-import ImagePicker from 'react-native-image-crop-picker';
 import CameraCrop from './CameraCrop'
 import Menu from './Menu'
 

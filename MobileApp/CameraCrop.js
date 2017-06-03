@@ -29,12 +29,9 @@ export default class CameraCrop extends Component{
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
           <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-        </Camera>
+         </Camera>
 		
-		<Image
-          style={{width: 50, height: 50}}
-          source={{uri: picturePath}}
-        />
+		  <Image style={{width: 50, height: 50}} source={{uri: picturePath}}/>
 		
 		
       </View>
