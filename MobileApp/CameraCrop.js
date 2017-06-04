@@ -58,12 +58,14 @@ export default class CameraCrop extends Component{
 	  height: 200
 	}).then(image => {
     // this.setState({picturePath: image.path})
-
+    let fullPath = image.path;
+    let imageName = fullPath.match(/[\w-]+\.jpg/);
+    console.log(imageName[0]);
     /*
 
     // sending image to server
     let body = new FormData();
-    body.append('photo', {uri: image.path,name: 'image.jpg',filename :'imageName.jpg',type: 'image/jpg'});
+    body.append('photo', {uri: image.path,name: imageName[0],type: 'image/jpg'});
         body.append('Content-Type', 'image/jpg');
 
     // add server url here
@@ -75,7 +77,7 @@ export default class CameraCrop extends Component{
       .then((res) => { console.log("response" +JSON.stringify(res)); })
       .catch((e) => console.log(e))
       .done()
-      
+
     */
 
 	});
