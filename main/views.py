@@ -19,7 +19,7 @@ def index(request):
 	gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 	# print gray.shape
 	gray = cv2.GaussianBlur(gray,(5,5),0)
-	imThresh2 = threshold_adaptive(gray, 251, offset = 10)
+	imThresh2 = threshold_adaptive(gray, 29, offset = 10)
 	imThresh2 = cv2.bitwise_not(imThresh2.astype("uint8") * 255)
 	edged2 = cv2.Canny(imThresh2, 75, 200)
 	cv2.imshow("threshed2", imThresh2)
@@ -30,7 +30,7 @@ def index(request):
 
 	rects = [cv2.boundingRect(cnt) for cnt in cnts]
 
-	heightThresh = int(max([x[3] for x in rects]) * 0.8)
+	heightThresh = int(max([x[3] for x in rects]) * 0.9)
 
 	rects = sorted(rects, key=lambda x: x[0])
 	print heightThresh
