@@ -55,7 +55,7 @@ export default class CameraCrop extends Component{
 	  ImagePicker.openCropper({
 	  path: pathPic,
 	  width: 600,
-	  height: 200
+	  height: 100
 	}).then(image => {
     // this.setState({picturePath: image.path})
     let fullPath = image.path;
