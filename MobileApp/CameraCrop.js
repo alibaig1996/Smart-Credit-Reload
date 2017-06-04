@@ -61,7 +61,7 @@ export default class CameraCrop extends Component{
     let fullPath = image.path;
     let imageName = fullPath.match(/[\w-]+\.jpg/);
     console.log(imageName[0]);
-    /*
+
 
     // sending image to server
     let body = new FormData();
@@ -69,7 +69,7 @@ export default class CameraCrop extends Component{
         body.append('Content-Type', 'image/jpg');
 
     // add server url here
-    fetch(Url,{ method: 'POST',headers:{  
+    fetch("http:\\192.168.100.61:8080",{ method: 'POST',headers:{  
          "Content-Type": "multipart/form-data",
          } , body :body} )
       .then((res) => checkStatus(res))
@@ -78,7 +78,9 @@ export default class CameraCrop extends Component{
       .catch((e) => console.log(e))
       .done()
 
-    */
+
+    
+
 
 	});
   }
